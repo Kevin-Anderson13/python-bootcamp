@@ -32,8 +32,8 @@ should print 3, 6, 9 (on successive lines)
 """
 
 lowNum = 2
-highNum = 46
+highNum = 45
 mult = 3
-for x in range(lowNum,highNum):
+for x in range(lowNum,highNum + 1):
     if x % mult == 0:
         print(x)

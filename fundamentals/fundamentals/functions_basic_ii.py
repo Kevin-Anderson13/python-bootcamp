@@ -45,11 +45,12 @@ def values_greater_than_second(first_list):
     new_list = []
     if len(first_list) < 2:
         return "False"
-    elif len(first_list) >= 2:
-        for x in range(len(first_list)):
+    for x in range(0,len(first_list)):
+        if first_list[x] > first_list[1]:
             new_list.append(first_list[x])
-            return new_list
+    return new_list
 print(values_greater_than_second([5,2,3,2,1,4]))
+print(values_greater_than_second([3]))
 
 
 
@@ -61,8 +62,10 @@ print(values_greater_than_second([5,2,3,2,1,4]))
 
 def length_and_value(list = [4,7]):
     new_list=[]
-    for x in range(list[0]):
+    for x in range(0,list[0]):
         x = list[1]
         new_list.append(x)
+    return new_list
 print(length_and_value())
+print(length_and_value([6,2]))
 

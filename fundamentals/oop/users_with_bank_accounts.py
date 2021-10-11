@@ -1,6 +1,5 @@
 class BankAccount:
     # class attribute
-    bank_name = "First National Dojo"
     all_accounts = []
     def __init__(self, int_rate = .01, balance = 0):
         self.int_rate = int_rate
@@ -20,8 +19,7 @@ class BankAccount:
         return self
     
     def display_account_info(self):
-        print(f"Balance: {self.balance}")
-        return self
+        return f"{self.balance}"
 
     def yield_interest(self):
         interest = self.balance * self.int_rate
@@ -40,12 +38,12 @@ class BankAccount:
     #     cls.bank_name = name
     # # class method to get balance of all accounts
     # @classmethod
-    # def all_balances(cls):
-    #     sum = 0
-    #     # we use cls to refer to the class
-    #     for account in cls.all_accounts:
-    #         sum += account.balance
-    #     return sum
+    def all_balances(cls):
+        sum = 0
+        # we use cls to refer to the class
+        for account in cls.all_accounts:
+            sum += account.balance
+        return sum
 
 
 # account_1 = BankAccount(.05, 100)
@@ -64,22 +62,21 @@ class BankAccount:
 
 
 class User:
-    bank_name = "El Banko del Utah"
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account = BankAccount(int_rate = .01, balance = 0)
+        self.account = BankAccount(.01, 0)
 
-    def make_deposit(self):
-        self.account.deposit()
-        return self
+    # def make_deposit(self):
+    #     self.account.deposit(100)
+    #     return self
 
-    def make_withdrawl(self, amount):
-        self.account.withdraw()
-        return self
+    # def make_withdrawl(self):
+    #     self.account.withdraw(100)
+    #     return self
 
     def display_user_balance(self):
-        print(f"{self.name} has {self.account.balance} left in their bank account.")
+        print(f"{self.name} has {self.account.display_account_info()} left in their bank account.")
         return self
 
     # def transfer_money(self, amount, other_user):
@@ -97,16 +94,12 @@ print(kelsee.name)
 print(kevin.name)
 print(tyson.name)
 
-kelsee.make_deposit(100000).make_deposit(1000000).make_deposit(1277000).make_withdrawl(1500000).display_user_balance()
+# kelsee.make_deposit(100000).make_deposit(1000000).make_deposit(1277000).make_withdrawl(1500000).display_user_balance()
+
+kelsee.account.deposit(1000).withdraw(100)
+kelsee.display_user_balance()
 
 
 
-# kevin.make_deposit(10).make_deposit(50).make_withdrawl(20).make_withdrawl(30).display_user_balance()
-
-
-
-# tyson.make_deposit(5).make_withdrawl(1).make_withdrawl(1).make_withdrawl(1).display_user_balance()
-
-
-
-# kelsee.transfer_money(800000, kevin)
+kevin.account.deposit(10).deposit(50).withdraw(80)
+kevin.display_user_balance()

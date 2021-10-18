@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>CHECKERBOARD</title>
+</head>
+
+<body>
+    <h1 style="background-color: {{second_color}}; color: {{first_color}};">This is a Checkerboard</h1>
+    <table>
+        <tbody>
+            {% for row in range(0,rows) %}
+            <tr>
+                {% for col in range(0,columns) %}
+                {% if (col+row) % 2 == 0 %}
+                <td style="background-color: {{first_color}};"></td>
+                {% else %}
+                <td style="background-color: {{second_color}};"></td>
+                {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>HTML Table</title>
+</head>
+
+<body>
+    <div class="form-style-5">
+        <h2>Submitted Info:</h2>
+        <h3>{{session['name']}}</h3>
+        <h5>{{session['about']}}</h5>
+        <h5>{{session['location']}}</h5>
+        <h5>{{session['favlanguage']}}</h5>
+        <h5>{{session['comments']}}</h5>
+    </div>
+</body>
+
+</html>

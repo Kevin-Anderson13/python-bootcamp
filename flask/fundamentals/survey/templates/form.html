@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>HTML Table</title>
+</head>
+
+<body>
+    <div class="form-style-5">
+        <form>
+            <fieldset>
+                <legend>Dojo Survey</legend>
+                <input type="text" name="field1" placeholder="Your Name *">
+                <textarea name="field2" placeholder="About yourself"></textarea>
+                <label for="location">Location:</label>
+                <select id="location" name="field3">
+                    <option value="sanjose">San Jose</option>
+                    <option value="boise">Boise</option>
+                    <option value="dallas">Dallas</option>
+                    <option value="online">Online</option>
+                </select>
+                <label for="favlanguage">Favorite Language:</label>
+                <select id="favlanguage" name="field4">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <textarea name="field5" placeholder="Comments"></textarea>
+            </fieldset>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+
+</html>

@@ -17,12 +17,12 @@ def rows_columns(x,y):
     return render_template("index.html",rows=x,columns=y,first_color='pink',second_color='green')
 
 @app.route('/<int:x>/<int:y>/<string:one>')
-def rows_columns_one(x,y,one):
-    return render_template("index.html",rows=x,columns=y,first_color=one,second_color='green')
+def rows_columns_one(x,y,first):
+    return render_template("index.html",rows=x,columns=y,first_color=first,second_color='green')
 
 @app.route('/<int:x>/<int:y>/<string:one>/<string:two>')
-def rows_columns_two(x,y,one,two):
-    return render_template("index.html",rows=x,columns=y,first_color=one,second_color=two)
+def rows_columns_two(x,y,first,second):
+    return render_template("index.html",rows=x,columns=y,first_color=first,second_color=second)
 
 if __name__=="__main__":
     app.run(debug=True)

@@ -1,0 +1,66 @@
+-- Question 1.
+
+SELECT name, language, percentage 
+FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE language = "Slovene"
+ORDER BY percentage DESC;
+
+
+-- Question 2.
+
+SELECT countries.name, COUNT(cities.name) as cities FROM countries
+LEFT JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.name
+ORDER BY cities DESC;
+
+
+--Question 3. 
+
+SELECT  name , population, country_id 
+FROM cities
+
+WHERE cities.country_id = ( SELECT id FROM countries WHERE countries.name = "Mexico" ) AND cities.population > 500000
+ORDER BY population DESC;
+
+
+--Question 4.
+
+SELECT countries.name as "Country Name", language, percentage 
+FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE percentage > 89
+ORDER BY percentage DESC;
+
+
+--Question 5.
+
+SELECT name as "Country Name", surface_area, population
+FROM countries
+WHERE surface_area < 501
+AND population > 100000;
+
+
+--Question 6.
+
+SELECT name as "Country Name", government_form, capital, life_expectancy
+FROM countries
+WHERE government_form = "Constitutional Monarchy" AND capital > 200 AND life_expectancy > 75;
+
+
+--Question 7.
+
+SELECT countries.name as "Counry Name", cities.name as "City Name", cities.district, cities.population as "City Population"
+From countries
+JOIN cities ON countries.id = cities.country_id
+WHERE cities.district = "Buenos Aires" AND cities.population > 500000
+ORDER BY cities.population DESC;
+
+
+--Question 8.
+
+SELECT countries.region as "name of region", COUNT(countries.name) as countries
+FROM countries
+GROUP BY countries.region
+ORDER BY countries DESC;
+-- I tried to get this one to change the column name to "name of country", but anytime I did that, it messed up the order of the "COUNT".  Want to know if there is any way to change that up so you can change the name of the column to be more discriptive.

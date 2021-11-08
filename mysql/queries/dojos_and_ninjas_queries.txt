@@ -1,0 +1,39 @@
+-- On dojos table
+
+USE dojos_and_ninjas_schema;
+INSERT INTO dojos (name) VALUES ("San Fransisco")
+INSERT INTO dojos (name) VALUES ("Boise");
+INSERT INTO dojos (name) VALUES ("Denver")
+DELETE FROM dojos;
+-- Safe mode will keep this DELETE from happening, but that would have deleted all three. I could use WHERE id = 1;
+
+INSERT INTO dojos (name) VALUES ("San Fransisco");
+INSERT INTO dojos (name) VALUES ("Boise");
+INSERT INTO dojos (name) VALUES ("Denver");
+UPDATE dojos SET name = "San Fransisco", updated_at = NOW() WHERE id = 1;
+
+-- SELECT name FROM dojos WHERE name LIKE "%e";
+
+SELECT * FROM dojos;
+
+
+-- On ninjas table
+
+USE dojos_and_ninjas_schema;
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Kevin", "Anderson", 31, 2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Kelsee", "Anderson", 28, 2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Tyson", "Galovich", 27, 2);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Deku", "Hero", 14, 3);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Shoto", "Todoroki", 15, 3);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Katchki", "Bakugo", 14, 3);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Maddy", "Galovich", 25, 4);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Zander", "Johnson", 21, 4);
+INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES ("Hannah", "Johnson", 20, 4);
+
+
+SELECT * FROM ninjas WHERE dojo_id = 2;
+SELECT * FROM ninjas WHERE dojo_id = 3;
+SELECT * FROM ninjas WHERE dojo_id = 4;
+
+

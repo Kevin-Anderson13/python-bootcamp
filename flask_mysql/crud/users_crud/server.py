@@ -8,6 +8,7 @@ app=Flask(__name__)
 def index():
     return redirect('/users')
 
+# Read All
 @app.route('/users')
 def all_users():
     return render_template("all_users.html", users=User.read_all())
@@ -16,9 +17,41 @@ def all_users():
 def new_user():
     return render_template("new_user.html")
 
+# Create Post
 @app.route('/user/create',methods=['POST'])
 def create():
     User.create(request.form)
+    return redirect('/users')
+
+# Update Get
+@app.route('/user/<int:id>/update')
+def update(id):
+    stuff ={
+        "id":id
+    }
+    return render_template("edit_user.html",user=User.read_one(stuff))
+
+# Read One
+@app.route('/user/<int:id>/show_one')
+def show(id):
+    stuff ={
+        "id":id
+    }
+    return render_template("one_user.html",user=User.read_one(stuff))
+
+# Update Post
+@app.route('/user/update',methods=['POST'])
+def update():
+    User.update(request.form)
+    return redirect('/users')
+
+# Delete or Destroy
+@app.route('/user/<int:id>/delete')
+def delete(id):
+    stuff ={
+        'id':id
+    }
+    User.delete(stuff)
     return redirect('/users')
 
 

@@ -25,18 +25,18 @@ def create():
 # Update Get
 @app.route('/user/<int:id>/update')
 def update(id):
-    stuff ={
+    data ={
         "id":id
     }
-    return render_template("edit_user.html",user=User.read_one(stuff))
+    return render_template("edit_user.html",user=User.read_one(data))
 
 # Read One
 @app.route('/user/<int:id>/show_one')
 def show(id):
-    stuff ={
+    data ={
         "id":id
     }
-    return render_template("one_user.html",user=User.read_one(stuff))
+    return render_template("one_user.html",user=User.read_one(data))
 
 # Update Post
 @app.route('/user/update',methods=['POST'])
@@ -47,8 +47,8 @@ def update():
 # Delete or Destroy
 @app.route('/user/<int:id>/delete')
 def delete(id):
-    stuff ={
+    data ={
         'id':id
     }
-    User.delete(stuff)
+    User.delete(data)
     return redirect('/users')

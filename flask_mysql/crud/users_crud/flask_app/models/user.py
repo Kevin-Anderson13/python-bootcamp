@@ -21,26 +21,26 @@ class User:
 
     # Create
     @classmethod
-    def create(cls, stuff):
+    def create(cls, data):
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s,%(last_name)s,%(email)s);"
-        result = connectToMySQL('users_schema').query_db(query,stuff)
+        result = connectToMySQL('users_schema').query_db(query,data)
         return result
 
     # Read One
     @classmethod
-    def read_one(cls,stuff):
+    def read_one(cls,data):
         query  = "SELECT * FROM users WHERE id = %(id)s";
-        result = connectToMySQL('users_schema').query_db(query,stuff)
+        result = connectToMySQL('users_schema').query_db(query,data)
         return cls(result[0])
 
     # Update
     @classmethod
-    def update(cls,stuff):
+    def update(cls,data):
         query = "UPDATE users SET first_name=%(first_name)s,last_name=%(last_name)s,email=%(email)s,updated_at=NOW() WHERE id = %(id)s;"
-        return connectToMySQL('users_schema').query_db(query,stuff)
+        return connectToMySQL('users_schema').query_db(query,data)
 
     # Delete or Destroy
     @classmethod
-    def delete(cls,stuff):
+    def delete(cls,data):
         query  = "DELETE FROM users WHERE id = %(id)s;"
-        return connectToMySQL('users_schema').query_db(query,stuff)
+        return connectToMySQL('users_schema').query_db(query,data)
